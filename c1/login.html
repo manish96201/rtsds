@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+
+        #c {
+            width: 350px;
+            background: #fff;
+            margin: 80px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h3 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        #c1 {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-top: 0;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        #res1 {
+            text-align: center;
+            color: red;
+            margin-top: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="c">
+        <h3>Login</h3>
+        <p id="c1">Sign in with your username and password</p>
+
+        <label>User ID:</label>
+        <input type="text" id="d1">
+
+        <label>User Password:</label>
+        <input type="password" id="d2">
+
+        <button type="button" onclick="Login()">Login</button>
+        <p id="res1"></p>
+
+        <p>Don't have an account? <a href="signin.html">Signup</a></p>
+    </div>
+
+    <script>
+        function Login() {
+            let user_id = document.getElementById("d1").value;
+            let user_pwd = document.getElementById("d2").value;
+
+            let ui = localStorage.getItem("create_id");
+            let upwd = localStorage.getItem("create_pwd");
+
+            if (user_id === ui && user_pwd === upwd) {
+                location.href = "index.html";
+            } else {
+                document.getElementById("res1").innerHTML = "Invalid credentials!";
+            }
+        }
+    </script>
+
+</body>
+</html>
